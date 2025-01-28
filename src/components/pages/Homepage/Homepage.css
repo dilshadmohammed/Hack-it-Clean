@@ -1,0 +1,351 @@
+.Homepage {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+
+    .bubble1 {
+        width: 20rem;
+        position: absolute;
+        animation: float 3s ease-in-out infinite;
+        top: 11rem;
+        left: 2rem;
+    }
+    
+    .bubble2 {
+        width: 12rem;
+        position: absolute;
+        animation: float 3.5s ease-in-out infinite;
+        top: 26rem;
+        left: 18rem;
+    }
+    
+    .bubble3 {
+        width: 12rem;
+        position: absolute;
+        animation: float 4s ease-in-out infinite;
+        top: 2rem;
+        left: 16rem;
+    }
+    
+    .bubble4 {
+        width: 7rem;
+        position: absolute;
+        animation: float 4.5s ease-in-out infinite;
+        top: -2rem;
+        left: 9rem;
+    }
+    
+    .bubble5 {
+        width: 3.5rem;
+        position: absolute;
+        animation: float 5s ease-in-out infinite;
+        top: 11rem;
+        left: 1rem;
+    }
+    
+    .bubble6 {
+        width: 3.5rem;
+        position: absolute;
+        animation: float 5.5s ease-in-out infinite;
+        top: 15rem;
+        left: 26rem;
+    }
+    
+    .bubble7 {
+        width: 3rem;
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        top: 34rem;
+        left: 27rem;
+    }
+    
+    .bubble8 {
+        width: 14rem;
+        position: absolute;
+        animation: float 6.5s ease-in-out infinite;
+        top: 34rem;
+        left: 6.5rem;
+        z-index: 2;
+    }
+    
+    .bubble9 {
+        width: 9rem;
+        position: absolute;
+        animation: float 7s ease-in-out infinite;
+        top: 1rem;
+        left: -3rem;
+    }
+    
+    .bubble10 {
+        width: 9rem;
+        position: absolute;
+        animation: float 7.5s ease-in-out infinite;
+        top: 30rem;
+        left: -2rem;
+    }
+    
+    .bubble11 {
+        width: 9rem;
+        position: absolute;
+        animation: float 7.5s ease-in-out infinite;
+        top: 20rem;
+        left: 30rem;
+    }            
+
+
+    .line {
+        justify-self: right;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        border-radius: 40rem;
+        width: 54rem;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+
+    span {
+        margin-right: 2rem;
+        line-height: 9.5rem;
+        font-family: "Poppins";
+        font-weight: 600;
+        font-size: 12rem;
+        color: #3d3b3a;
+    }
+
+    .title-2-3 {
+        display: flex;
+        justify-content: right;
+        align-items: start;
+    }
+    
+    .title-2 {
+        color: #5b5b5b;
+        line-height: 6.7rem;
+        font-size: 6rem;
+        margin: 0.8rem;
+    }
+    .title-3 {
+        font-size: 8rem;
+    }
+
+    .line-2 {
+        justify-self: right;
+        margin-top: 0.2rem;
+        border-radius: 40rem;
+        margin-bottom: 0rem;
+        width: 34rem;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+
+    p {
+        margin-right: 3rem;
+        font-family: "Open Sans", serif;
+        font-style: italic;
+        font-size: 2rem;
+    }
+    .cta {
+        display: flex;
+        justify-self: center;
+        gap: 20rem;
+        margin: 3.7rem 0rem;
+        margin-right: 16rem;
+
+        button {
+            cursor: pointer;
+            font-size: 1.7rem;
+            font-weight: 730;
+            color: #5b5b5b;
+            font-family: "Open Sans", serif;
+            border: none;
+            background-color: transparent;
+        }
+
+        button:hover {
+            color: #3d3b3a;
+        }
+
+        button:hover ~ .button-active {
+            margin-top: 0rem;
+            width: 7rem;
+            border-bottom: 0.3rem solid #5b5b5b;
+        }
+
+        .button-active {
+            transition: 0.5s ease;
+            justify-self: center;
+            margin-top: 0.3rem;
+            margin-bottom: 2.3rem;
+            border-radius: 40rem;
+            width: 3rem;
+            border-bottom: 0.3rem solid #3d3b3a;
+        }
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.6rem);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@media (max-width: 580px) {
+    .Homepage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+
+        .line {
+            display: none;
+        }
+    
+        span {
+            margin: 0;
+            padding: 0;
+            line-height: 14rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title-1 {
+            font-size: 7.5rem;
+        }
+    
+        .title-2-3 {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .title-2 {
+            font-size: 6rem;
+            margin: 0;
+        }
+        .title-3 {
+            font-size: 7rem;
+        }
+    
+        .line-2 {
+            display: none;
+        }
+    
+        p {
+            position: relative;
+            justify-self: center;
+            margin-right: 0;
+            font-size: 2rem;
+            width: 40rem;
+            margin-bottom: 10rem;
+            z-index: 10;
+
+        }
+        .cta {
+            display: flex;
+            justify-self: center;
+            gap: 10rem;
+            margin: 0rem;
+        }
+        
+        .bubble1 {
+            width: 20rem;
+            top: 25%;
+            left: -6rem;
+        }
+        
+        .bubble2 {
+            width: 12rem;
+            top: 20rem;
+            right: -6rem;
+            left: auto;
+        }
+        
+        .bubble3 {
+            width: 12rem;
+            position: absolute;
+            animation: float 4s ease-in-out infinite;
+            top: 2rem;
+            left: 16rem;
+        }
+        
+        .bubble4 {
+            width: 7rem;
+            position: absolute;
+            animation: float 4.5s ease-in-out infinite;
+            top: -2rem;
+            left: 9rem;
+        }
+        
+        .bubble5 {
+            width: 3.5rem;
+            position: absolute;
+            animation: float 5s ease-in-out infinite;
+            top: 11rem;
+            left: 1rem;
+        }
+        
+        .bubble6 {
+            width: 3.5rem;
+            position: absolute;
+            animation: float 5.5s ease-in-out infinite;
+            top: 15rem;
+            left: 26rem;
+        }
+        
+        .bubble7 {
+            width: 3rem;
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            top: 34rem;
+            left: 27rem;
+        }
+        
+        .bubble8 {
+            width: 14rem;
+            position: absolute;
+            animation: float 6.5s ease-in-out infinite;
+            top: 34rem;
+            left: 6.5rem;
+            z-index: 2;
+        }
+        
+        .bubble9 {
+            width: 9rem;
+            position: absolute;
+            animation: float 7s ease-in-out infinite;
+            top: 1rem;
+            left: -3rem;
+        }
+        
+        .bubble10 {
+            width: 9rem;
+            position: absolute;
+            animation: float 7.5s ease-in-out infinite;
+            top: 30rem;
+            left: -2rem;
+        }
+        
+        .bubble11 {
+            width: 9rem;
+            position: absolute;
+            animation: float 7.5s ease-in-out infinite;
+            top: 20rem;
+            left: 30rem;
+        } 
+    }
+}
+  

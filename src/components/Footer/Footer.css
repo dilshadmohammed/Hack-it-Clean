@@ -1,0 +1,22 @@
+.footer {
+    align-content: flex-end;
+    padding: 1rem;
+    text-align: center;
+    background-color: #3d3b3a;
+    height: 14rem;
+    color: white;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 1.2rem;
+    animation: fadeIn 1s forwards;
+    z-index: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
