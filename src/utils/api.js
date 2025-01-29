@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000', // Set your base API URL here
+    baseURL: 'https://dilshadvln.pythonanywhere.com/', // Set your base API URL here
 });
 
 axiosInstance.interceptors.request.use(
