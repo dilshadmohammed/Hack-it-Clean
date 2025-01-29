@@ -1,5 +1,4 @@
 .Navbar {
-    height: 3rem;
     font-size: 1.7rem;
     font-weight: 700;
     display: flex;
@@ -11,6 +10,7 @@
     border-bottom: 0.3rem solid #3d3b3a;
     animation: fadeIn 1s forwards;
     position: relative;
+    z-index: 0;
 
     .head {
         display: flex;
@@ -27,6 +27,16 @@
 
     svg {
         width: 4.3rem;
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .mobile-nav {
         display: none;
     }
 
@@ -51,19 +61,19 @@
         border: 0.24rem solid #5b5b5b;
         border-right: none;
         border-bottom-left-radius: 1rem;
-        width: 15rem;
+        width: 12rem;
         height: 4rem;
         display: flex;
         align-items: center;
         justify-content: right;
         text-align: center;
-        padding-right: 1.5rem;
+        padding: 0.2rem 1rem 0.2rem 1rem;
         font-family: "Poppins";
         color: #3d3b3a;
 
         img{
             width: 3rem;
-            margin-left: 1.4rem;
+            margin-left: 1rem;
             margin-top: 0.5rem;
         }
     }
@@ -84,8 +94,48 @@
 
 @media (max-width: 580px) {
     .Navbar {
-        .nav-links {
+        z-index: 4;
+        padding-right: 2rem;
+
+        .nav {
             display: none;
+        }
+    
+        .mobile-nav {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 4rem;
+                background-color: #5b5b5b;
+            }
+
+            .details {
+                margin-right: 2rem;
+                border: 0.23rem solid #5b5b5b;
+                border-radius: 1rem;
+            }
+
+            .nav-links {
+                transition: height 0.5s ease-in;
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                background-color: white;
+                opacity: 0.9;
+                height: 8rem;
+                height: 0;
+                width: 100%;
+                border-bottom: 0.3rem solid #3d3b3a;
+                position: absolute;
+                top: 8.3rem;
+                left: 0rem;
+                overflow: hidden;
+
+                a {
+                    margin-left: 5rem;
+                }
+            }
         }
     }
 }
