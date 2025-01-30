@@ -5,6 +5,7 @@
     position: relative;
     opacity: 0;
     animation: fadeIn 1s forwards;
+    overflow: hidden;
 
     .bubble1 {
         width: 20rem;
@@ -208,143 +209,137 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        height: 100vh;
+        height: 80vh;
 
         .line {
-            display: none;
+            /* display: none; */
+            width: 20rem;
+            justify-self: center;
         }
-    
-        span {
-            margin: 0;
-            padding: 0;
-            line-height: 14rem;
+
+        .line-2 {
+            /* display: none; */
+            width: 20rem;
+            margin-top: 2rem;
+            justify-self: center;
+        }
+
+        .bubbles1 {
+            z-index: 2;
             position: relative;
-            z-index: 10;
+            order: 1;
+            flex: 1;
+            height: 100%;
+            /* background-color: red; */
+        }
+        
+        .details {
+            z-index: 3;
+            width: 80%;
+            order: 2;
+        }
+        
+        .bubbles2 {
+            z-index: 1;
+            position: relative;
+            /* background-color: blue; */
+            order: 3;
+            flex: 1;
+            height: 100%;
         }
 
         .title-1 {
-            font-size: 7.5rem;
-        }
-    
-        .title-2-3 {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .title-2 {
-            font-size: 6rem;
+            font-weight: 1rem;
+            font-size: 7rem;
             margin: 0;
         }
+
+        .title-2-3 {
+            font-weight: 1rem;
+            display: grid;
+            justify-self: center;
+            margin-top: 2rem;
+            gap: 2rem;
+        }
+
         .title-3 {
             font-size: 7rem;
+            margin: 0;
         }
-    
-        .line-2 {
-            display: none;
-        }
-    
-        p {
-            position: relative;
-            justify-self: center;
-            margin-right: 0;
-            font-size: 2rem;
-            width: 40rem;
-            margin-bottom: 10rem;
-            z-index: 10;
 
+        p {
+            margin: 0;
+            margin-top: 6rem;
         }
+
         .cta {
-            display: flex;
-            justify-self: center;
+            margin: 0;
+            margin-top: 10rem;
             gap: 10rem;
-            margin: 0rem;
         }
-        
+
         .bubble1 {
-            width: 20rem;
-            top: 25%;
-            left: -6rem;
+            top: 54rem;
+            left: -10rem;
+            right: auto;
         }
         
         .bubble2 {
-            width: 12rem;
-            top: 20rem;
-            right: -6rem;
+            top: 63rem;
             left: auto;
+            right: -3rem;
         }
         
         .bubble3 {
-            width: 12rem;
-            position: absolute;
-            animation: float 4s ease-in-out infinite;
-            top: 2rem;
-            left: 16rem;
+            top: 4rem;
+            left: auto;
+            right: 0;
         }
         
         .bubble4 {
-            width: 7rem;
-            position: absolute;
-            animation: float 4.5s ease-in-out infinite;
-            top: -2rem;
-            left: 9rem;
+            top: 44rem;
+            left: auto;
+            right: 0;
         }
         
-        .bubble5 {
-            width: 3.5rem;
-            position: absolute;
-            animation: float 5s ease-in-out infinite;
-            top: 11rem;
-            left: 1rem;
+        .bubble5 {   
+            left: 8rem;
+            right: auto;
         }
         
         .bubble6 {
-            width: 3.5rem;
-            position: absolute;
-            animation: float 5.5s ease-in-out infinite;
-            top: 15rem;
-            left: 26rem;
+            left: auto;
+            right: auto;
         }
         
         .bubble7 {
-            width: 3rem;
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-            top: 34rem;
-            left: 27rem;
+            top: 26rem;
+            left: auto;
+            right: 10rem;
         }
         
         .bubble8 {
-            width: 14rem;
-            position: absolute;
-            animation: float 6.5s ease-in-out infinite;
-            top: 34rem;
-            left: 6.5rem;
-            z-index: 2;
+            top: 28rem;
+            left: -1rem;
+            right: auto;
         }
         
         .bubble9 {
-            width: 9rem;
-            position: absolute;
-            animation: float 7s ease-in-out infinite;
-            top: 1rem;
-            left: -3rem;
+            top: -2rem;
+            left: auto;
+            right: auto;
         }
         
         .bubble10 {
-            width: 9rem;
-            position: absolute;
-            animation: float 7.5s ease-in-out infinite;
-            top: 30rem;
+            top: 15rem;
             left: -2rem;
+            right: auto;
         }
         
         .bubble11 {
-            width: 9rem;
-            position: absolute;
-            animation: float 7.5s ease-in-out infinite;
-            top: 20rem;
-            left: 30rem;
+            top: 75rem;
+            left: auto;
+            right: 11rem;
         } 
     }
 }

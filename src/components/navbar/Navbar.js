@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import axiosInstance from "../../utils/api"; // Import the axiosInstance
+import axiosInstance from "../../utils/api";
 
 export default function Navbar() {
     const [userDetails, setUserDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [navOpen, setNavOpen] = useState(false);
 
     useEffect(() => {
         const fetchUserDetails = async () => {
-            setIsLoading(true)
+            setIsLoading(true);
             setError(null);
             const token = localStorage.getItem("accessToken");
+
             if (token) {
                 try {
                     const response = await axiosInstance.get("/api/user/getuser");
                     setUserDetails(response.data.response);
                 } catch (err) {
-                    setError("Failed to get the user")
+                    setError("Failed to get the user");
                     console.error("Error Fetching User Details:", err);
-                } finally {
-                    setIsLoading(false)
                 }
-            } else {
-                setIsLoading(false) // No token, not logged in
             }
+            setIsLoading(false);
         };
 
         fetchUserDetails();
     }, []);
+
+    // Toggle mobile nav
+    const toggleNav = () => {
+        setNavOpen((prev) => !prev);
+    };
 
     return (
         <div className="Navbar">
@@ -37,7 +41,7 @@ export default function Navbar() {
                 <div className="logo">
                     <span>INNOWASH</span>
                 </div>
-                <div>
+                <div className="burger-menu" onClick={toggleNav}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path
                             fill="#ffffff"
@@ -46,42 +50,68 @@ export default function Navbar() {
                     </svg>
                 </div>
             </div>
-            <div className="nav-links">
-                <NavLink to="/">
-                    <span>HOME</span>
-                </NavLink>
-                <NavLink to="/types">
-                    <span>TYPES</span>
-                </NavLink>
-                <NavLink to="/booking">
-                    <span>BOOKING</span>
-                </NavLink>
-                <NavLink to="/status">
-                    <span>STATUS</span>
-                </NavLink>
-            </div>
-            <div className="details">
-                {isLoading ? <p>Loading user details</p> : (
-                    error ? <p>{error}</p> : (
-                        userDetails ? (
-                            <>
-                                <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
-                                <div>
-                                    <img src={userDetails.profilePicture || "/img/user.jpg"} alt="User" />
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <div>
-                                    Login
-                                </div>
-                                <div>
-                                    <img src="/img/user.jpg" />
-                                </div>
-                            </>
-                        )
 
-                    ))}
+            <div className="nav">
+                <div className="nav-links">
+                    <NavLink to="/"><span>HOME</span></NavLink>
+                    <NavLink to="/types"><span>TYPES</span></NavLink>
+                    <NavLink to="/booking"><span>BOOKING</span></NavLink>
+                    <NavLink to="/status"><span>STATUS</span></NavLink>
+                </div>
+
+                <div className="details">
+                    {isLoading ? <p>Loading user details...</p> : (
+                        error ? <p>{error}</p> : (
+                            userDetails ? (
+                                <>
+                                    <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
+                                    <div>
+                                        <img src={userDetails.profilePicture || "/img/user.jpg"} alt="User" />
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div>Login</div>
+                                    <div>
+                                        <img src="/img/user.jpg" alt="Default User" />
+                                    </div>
+                                </>
+                            )
+                        )) }
+                </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="mobile-nav">
+                <div className="nav-links" id="navBar" style={{ height: navOpen ? "8rem" : "0rem" }}>
+                    <NavLink to="/"><span>HOME</span></NavLink>
+                    <NavLink to="/types"><span>TYPES</span></NavLink>
+                    <NavLink to="/booking"><span>BOOKING</span></NavLink>
+                    <NavLink to="/status"><span>STATUS</span></NavLink>
+                </div>
+                <div className="details">
+                    {isLoading ? <p>Loading user details...</p> : (
+                        error ? <p>{error}</p> : (
+                            userDetails ? (
+                                <>
+                                    <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
+                                    <div>
+                                        <img src={userDetails.profilePicture || "/img/user.jpg"} alt="User" />
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div>Login</div>
+                                    <div>
+                                        <img src="/img/user.jpg" alt="Default User" />
+                                    </div>
+                                </>
+                            )
+                        )) }
+                </div>
+                <div>
+                    <img className="navBtn" src="/img/burger_nav.png" alt="Menu Toggle" onClick={toggleNav} />
+                </div>
             </div>
         </div>
     );
