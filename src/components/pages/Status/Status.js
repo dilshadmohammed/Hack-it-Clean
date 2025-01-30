@@ -35,8 +35,8 @@ export default function Status() {
 
     return (
         <div className="Status">
-            {/* <h1>BOOKING SUCCESSFUL!</h1> */}
-            {/* <div className="line"></div> */}
+            <h1>BOOKING DETAILS!</h1>
+            <div className="line"></div>
             <div className="confirmation-details">
                 {currentStatus==='booked' &&
                 (<p>Your slot for <strong>{washingType}</strong> has been successfully booked.</p>)
