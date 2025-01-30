@@ -25,7 +25,6 @@
     .line{
         justify-self: center;
         margin-bottom: 0.2rem;
-        border-radius: 40rem;
         width: 20rem;
         border-bottom: 0.3rem solid #3d3b3a;
     }
@@ -48,5 +47,11 @@
     }
     100% {
       opacity: 1;
+    }
+}
+
+@media (max-width: 580px) {
+    .Types {
+        height: 80vh;
     }
 }
