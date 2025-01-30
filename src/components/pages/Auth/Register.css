@@ -1,16 +1,12 @@
-.Booking {
+.Register {
     display: grid;
-    grid-template-rows: 6;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
     text-align: center;
-    height: 44rem;
-    animation: fadeIn 1s forwards;
+    height: 43rem;
 
-    .line {
-        justify-self: center;
-        margin-bottom: 3rem;
-        width: 20rem;
-        border-bottom: 0.3rem solid #3d3b3a;
+    .register-box {
+        display: grid;
     }
 
     h1 {
@@ -22,18 +18,22 @@
         font-size: 4rem;
     }
 
+    .line {
+        justify-self: center;
+        margin-bottom: 3rem;
+        border-radius: 40rem;
+        width: 10rem;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+
     label {
         font-family: "Poppins";
         color: #3d3b3a;
         font-size: 2rem;
         margin: 2rem;
     }
-    
-    div {
-        margin-bottom: 4rem;
-    }
-    
-    button, input, select {
+
+    input{
         font-size: 1.2rem;
         background-color: transparent;
         padding: 1rem;
@@ -42,11 +42,12 @@
         border: 0.1rem solid #3d3b3a;
     }
 
-    button:hover, input:hover, select:hover {
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0.24), 0 0 1rem rgba(0, 0, 0, 0.19);
+    .input-container {
+        margin-bottom: 2.5rem;
     }
 
     .submit {
+        justify-self: center;
         cursor: pointer;
         font-size: 1.7rem;
         padding: 0;
@@ -55,6 +56,7 @@
         font-family: "Open Sans", serif;
         border: none;
         background-color: transparent;
+        width: fit-content;
     }
 
     .submit:hover {
@@ -64,7 +66,7 @@
 
     .submit:hover ~ .button-active {
         margin-top: 0rem;
-        width: 7rem;
+        width: 5rem;
         border-bottom: 0.3rem solid #5b5b5b;
     }
 
@@ -72,18 +74,24 @@
         transition: 0.5s ease;
         justify-self: center;
         margin-top: 0.3rem;
-        margin-bottom: 3.4rem;
+        margin-bottom: 1rem;
         border-radius: 40rem;
         width: 3rem;
         border-bottom: 0.3rem solid #3d3b3a;
     }
-}
 
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
+    p {
+        font-family: "Poppins";
+        color: #3d3b3a;
+        margin: 2rem;
+
+        a {
+            margin-left: 0.5rem;
+        }
+
+        a:hover {
+            color: blue;
+            margin-left: 0.5rem;
+        }
     }
 }

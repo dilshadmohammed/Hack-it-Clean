@@ -1,0 +1,97 @@
+.Login {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    height: 43rem;
+
+    .login-box {
+        display: grid;
+    }
+
+    h1 {
+        margin: 0;
+        margin-top: 2rem;
+        font-family: "Poppins";
+        color: #3d3b3a;
+        font-weight: 600;
+        font-size: 4rem;
+    }
+
+    .line {
+        justify-self: center;
+        margin-bottom: 3rem;
+        border-radius: 40rem;
+        width: 10rem;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+
+    label {
+        font-family: "Poppins";
+        color: #3d3b3a;
+        font-size: 2rem;
+        margin: 2rem;
+    }
+
+    input{
+        font-size: 1.2rem;
+        background-color: transparent;
+        padding: 1rem;
+        font-weight: 0rem;
+        border-radius: 1rem;
+        border: 0.1rem solid #3d3b3a;
+    }
+
+    .input-container {
+        margin-bottom: 2.5rem;
+    }
+
+    .submit {
+        justify-self: center;
+        cursor: pointer;
+        font-size: 1.7rem;
+        padding: 0;
+        font-weight: 730;
+        color: #5b5b5b;
+        font-family: "Open Sans", serif;
+        border: none;
+        background-color: transparent;
+        width: fit-content;
+    }
+
+    .submit:hover {
+        color: #3d3b3a;
+        box-shadow: none;
+    }
+
+    .submit:hover ~ .button-active {
+        margin-top: 0rem;
+        width: 5rem;
+        border-bottom: 0.3rem solid #5b5b5b;
+    }
+
+    .button-active {
+        transition: 0.5s ease;
+        justify-self: center;
+        margin-top: 0.3rem;
+        margin-bottom: 1rem;
+        border-radius: 40rem;
+        width: 3rem;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+
+    p {
+        font-family: "Poppins";
+        color: #3d3b3a;
+        margin: 2rem;
+
+        a {
+            margin-left: 0.5rem;
+        }
+
+        a:hover {
+            color: blue;
+            margin-left: 0.5rem;
+        }
+    }
+}

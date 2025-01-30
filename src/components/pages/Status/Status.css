@@ -7,7 +7,7 @@
 
     h1 {
         margin: 0;
-        margin-top: 2.9rem;
+        margin-top: 2rem;
         font-family: "Poppins";
         color: #3d3b3a;
         font-weight: 600;
@@ -27,7 +27,7 @@
             font-family: "Poppins";
             color: #3d3b3a;
             font-size: 1.5rem;
-            margin: 2rem;
+            margin: 1.3rem;
         }
     }
 
@@ -44,47 +44,28 @@
             font-family: "Poppins";
             color: #3d3b3a;
             font-size: 1.5rem;
-            margin: 2rem;
+            margin: 1.3rem;
         }
     }
-}
 
-.cancel-btn {
-    display: inline-block;
-    padding: 0.9rem 1.8rem;
-    font-size: 16px;
-    font-weight: 700;
-    color: black;
-    border: 3px solid black;
-    cursor: pointer;
-    position: relative;
-    background-color: transparent;
-    text-decoration: none;
-    overflow: hidden;
-    z-index: 1;
-    font-family: inherit;
-   }
-   
-   .cancel-btn::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(252, 70, 100);
-    transform: translateX(-100%);
-    transition: all .3s;
-    z-index: -1;
-   }
-   
-   .cancel-btn:hover::before {
-    transform: translateX(0);
-    color: white;
-   }
-   .cancel-btn:hover {
-    color: white;
-   }
+    .cancel-btn {
+        transition: border 0.3s;
+        cursor: pointer;
+        font-size: 1.7rem;
+        padding: 0;
+        font-weight: 730;
+        color: #5b5b5b;
+        font-family: "Open Sans", serif;
+        border: none;
+        background-color: transparent;
+    }
+    
+    .cancel-btn:hover {
+        color: #3d3b3a;
+        box-shadow: none;
+        border-bottom: 0.3rem solid #3d3b3a;
+    }
+}
 
 
 @keyframes fadeIn {
