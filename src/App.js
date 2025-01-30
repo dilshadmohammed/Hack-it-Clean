@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./components/pages/Auth/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
+import Register from "./components/pages/Auth/Register";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,6 +34,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+          <Route path="/register" element={<Register onLogin={() => setIsAuthenticated(true)} />} />
           <Route path="/" element={<Home />} />
           <Route
             path="/booking"

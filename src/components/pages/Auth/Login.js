@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../utils/api";
 
 export default function Login({ onLogin }) {
@@ -65,7 +65,7 @@ export default function Login({ onLogin }) {
         />
         <button type="submit">Login</button>
         <p>
-          Don't have an account? <a href="#">Sign up</a>
+          Don't have an account? <Link to="/register">Sign up</Link>
         </p>
       </form>
     </div>

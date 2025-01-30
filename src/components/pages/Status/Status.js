@@ -38,7 +38,15 @@ export default function Status() {
             {/* <h1>BOOKING SUCCESSFUL!</h1> */}
             {/* <div className="line"></div> */}
             <div className="confirmation-details">
-                <p>Your slot for <strong>{washingType}</strong> has been successfully booked.</p>
+                {currentStatus==='booked' &&
+                (<p>Your slot for <strong>{washingType}</strong> has been successfully booked.</p>)
+                }
+                {currentStatus==='cancelled' &&
+                (<p>Your slot for <strong>{washingType}</strong> has been cancelled.</p>)
+                }
+                {currentStatus==='in_progress' &&
+                (<p>Your clothes for <strong>{washingType}</strong> is in progress.</p>)
+                }
                 <p>Date: <strong>{selectedDate}</strong></p>
                 <p>Time Slot: <strong>{timeSlot}</strong></p>
                 <p>Current Status: <strong>{currentStatus}</strong></p>
