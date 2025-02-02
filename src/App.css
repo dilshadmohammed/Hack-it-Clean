@@ -4,6 +4,7 @@
 
 .container {
     overflow: hidden;
+    height: 42.3rem;
 }
 
 @media (max-width: 580px) {
