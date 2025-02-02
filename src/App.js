@@ -32,35 +32,37 @@ export default function App() {
 
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
-          <Route path="/register" element={<Register onLogin={() => setIsAuthenticated(true)} />} />
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/booking"
-            element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Booking />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/status"
-            element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Status />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/types"
-            element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Types />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+            <Route path="/register" element={<Register onLogin={() => setIsAuthenticated(true)} />} />
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/booking"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Booking />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/status"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Status />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/types"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Types />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>

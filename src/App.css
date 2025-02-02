@@ -2,9 +2,21 @@
     font-size: 1vw;
 }
 
+.container {
+    overflow: hidden;
+    height: 42.3rem;
+}
+
 @media (max-width: 580px) {
     :root {
         font-size: 2vw;
+    }
+
+    .container {
+        height: 80vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
     }
 }
 

@@ -21,7 +21,6 @@
     .line {
         justify-self: center;
         margin-bottom: 3rem;
-        border-radius: 40rem;
         width: 10rem;
         border-bottom: 0.3rem solid #3d3b3a;
     }
@@ -93,5 +92,11 @@
             color: blue;
             margin-left: 0.5rem;
         }
+    }
+}
+
+@media (max-width: 580px) {
+    .Register {
+        height: 80vh;
     }
 }

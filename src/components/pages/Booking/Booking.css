@@ -3,7 +3,6 @@
     grid-template-rows: 6;
     justify-content: center;
     text-align: center;
-    height: 44rem;
     animation: fadeIn 1s forwards;
 
     .line {
@@ -85,5 +84,11 @@
     }
     100% {
       opacity: 1;
+    }
+}
+
+@media (max-width: 580px) {
+    .Booking {
+        /* height: 80vh; */
     }
 }

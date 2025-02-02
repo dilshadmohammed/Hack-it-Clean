@@ -8,6 +8,7 @@ export default function Navbar() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [navOpen, setNavOpen] = useState(false);
+    const [detailsOpen, setDetailsOpen] = useState(false);
 
     useEffect(() => {
         const fetchUserDetails = async () => {
@@ -35,6 +36,10 @@ export default function Navbar() {
         setNavOpen((prev) => !prev);
     };
 
+    const toggleDetails = () => {
+        setDetailsOpen((prev) => !prev);
+    };
+
     return (
         <div className="Navbar">
             <div className="head">
@@ -59,7 +64,7 @@ export default function Navbar() {
                     <NavLink to="/status"><span>STATUS</span></NavLink>
                 </div>
 
-                <div className="details">
+                <div className="details" onClick={toggleDetails}>
                     {isLoading ? <p>Loading user details...</p> : (
                         error ? <p>{error}</p> : (
                             userDetails ? (
@@ -89,7 +94,7 @@ export default function Navbar() {
                     <NavLink to="/booking"><span>BOOKING</span></NavLink>
                     <NavLink to="/status"><span>STATUS</span></NavLink>
                 </div>
-                <div className="details">
+                <div className="details" onClick={toggleDetails}>
                     {isLoading ? <p>Loading user details...</p> : (
                         error ? <p>{error}</p> : (
                             userDetails ? (
@@ -112,6 +117,24 @@ export default function Navbar() {
                 <div>
                     <img className="navBtn" src="/img/burger_nav.png" alt="Menu Toggle" onClick={toggleNav} />
                 </div>
+            </div>
+            <div className="side-nav" style={{ width: detailsOpen ? "25%" : "0"}}>
+                {isLoading ? <p>Loading user details...</p> : (
+                            error ? <p>{error}</p> : (
+                                userDetails ? (
+                                    <>
+                                        <div className="side-nav-container">
+                                            <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
+                                            <div>Addmission No: 1234</div>
+                                            <div>Current bill: 230.0 </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div>Login for details</div>
+                                    </>
+                                )
+                            )) }
             </div>
         </div>
     );
