@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Booking.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../utils/api";
@@ -11,6 +11,21 @@ export default function Booking() {
 
   const [selectedDate, setSelectedDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
+
+  const [minDate, setMinDate] = useState('');
+  const [maxDate, setMaxDate] = useState('');
+
+  useEffect(() => {
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+    setMinDate(today);
+
+    // Get the date one week ahead
+    const oneWeekFromToday = new Date();
+    oneWeekFromToday.setDate(oneWeekFromToday.getDate() + 10);
+    const max = oneWeekFromToday.toISOString().split('T')[0];
+    setMaxDate(max);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,6 +72,8 @@ export default function Booking() {
             id="date"
             name="date"
             required
+            min={minDate} // Disable past dates
+            max={maxDate} // Disable dates beyond one week from today
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
           />

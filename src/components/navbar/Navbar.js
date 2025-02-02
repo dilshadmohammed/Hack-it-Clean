@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axiosInstance from "../../utils/api";
 
 export default function Navbar() {
@@ -11,6 +11,24 @@ export default function Navbar() {
     const [detailsOpen, setDetailsOpen] = useState(false);
 
     useEffect(() => {
+        function getUsername(input) {
+            // Regular expression to check for email pattern
+            const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+          
+            if (emailRegex.test(input)) {
+              // Extract username part from email
+              return input.split('@')[0];
+            }
+          
+            // Return input as-is if it's a username
+            return input;
+          }
+          function shortenUsername(username) {
+            if (username.length > 10) {
+              return username.slice(0, 9) + '...';
+            }
+            return username;
+          }
         const fetchUserDetails = async () => {
             setIsLoading(true);
             setError(null);
@@ -19,9 +37,15 @@ export default function Navbar() {
             if (token) {
                 try {
                     const response = await axiosInstance.get("/api/user/getuser");
-                    setUserDetails(response.data.response);
+                    let data = response.data.response
+                    data.username = getUsername(data.username)
+                    data.shortname = shortenUsername(data.username)
+                    setUserDetails(data);
                 } catch (err) {
                     setError("Failed to get the user");
+                    localStorage.removeItem('accessToken');
+                    console.log('Logged out successfully');
+                    window.location.href = '/'
                     console.error("Error Fetching User Details:", err);
                 }
             }
@@ -39,6 +63,13 @@ export default function Navbar() {
     const toggleDetails = () => {
         setDetailsOpen((prev) => !prev);
     };
+
+    const handleLogout = () => {
+        // Delete access token key from localStorage
+        localStorage.removeItem('accessToken');
+        console.log('Logged out successfully');
+        window.location.href = '/'
+      };
 
     return (
         <div className="Navbar">
@@ -69,14 +100,14 @@ export default function Navbar() {
                         error ? <p>{error}</p> : (
                             userDetails ? (
                                 <>
-                                    <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
+                                    <div>{userDetails.shortname?.toUpperCase() || userDetails.email || 'USER'}</div>
                                     <div>
                                         <img src={userDetails.profilePicture || "/img/user.jpg"} alt="User" />
                                     </div>
                                 </>
                             ) : (
                                 <>
-                                    <div>Login</div>
+                                    <Link to={'/login'}  className="no-underline"><div>Login</div></Link>
                                     <div>
                                         <img src="/img/user.jpg" alt="Default User" />
                                     </div>
@@ -99,14 +130,14 @@ export default function Navbar() {
                         error ? <p>{error}</p> : (
                             userDetails ? (
                                 <>
-                                    <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
+                                    <div>{userDetails.shortname?.toUpperCase()   || 'USER'}</div>
                                     <div>
                                         <img src={userDetails.profilePicture || "/img/user.jpg"} alt="User" />
                                     </div>
                                 </>
                             ) : (
                                 <>
-                                    <div>Login</div>
+                                    <Link to={'/login'}  className="no-underline"><div>Login</div></Link>
                                     <div>
                                         <img src="/img/user.jpg" alt="Default User" />
                                     </div>
@@ -124,9 +155,10 @@ export default function Navbar() {
                                 userDetails ? (
                                     <>
                                         <div className="side-nav-container">
-                                            <div>{userDetails.username?.toUpperCase() || userDetails.email || 'USER'}</div>
-                                            <div>Addmission No: 1234</div>
-                                            <div>Current bill: 230.0 </div>
+                                            <div>{userDetails.username?.toUpperCase() || 'USER'}</div>
+                                            <div>Admission No: {userDetails.admission_no}</div>
+                                            <div>Current bill: {userDetails.current_bill} </div>
+                                            <button className="cancel-btn" onClick={handleLogout}>Log out</button>
                                         </div>
                                     </>
                                 ) : (

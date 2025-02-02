@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,14 +13,6 @@ import { Toaster } from "react-hot-toast";
 import Register from "./components/pages/Auth/Register";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    console.log("Initial token:", token);
-    setIsAuthenticated(!!token);
-    console.log("Initial isAuthenticated:", !!token); // Log the value of isAuthenticated
-  }, []);
 
   return (
     <div className="app">
@@ -34,13 +25,13 @@ export default function App() {
         <Navbar />
         <div className="container">
           <Routes>
-            <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
-            <Route path="/register" element={<Register onLogin={() => setIsAuthenticated(true)} />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
             <Route path="/" element={<Home />} />
             <Route
               path="/booking"
               element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProtectedRoute>
                   <Booking />
                 </ProtectedRoute>
               }
@@ -48,7 +39,7 @@ export default function App() {
             <Route
               path="/status"
               element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProtectedRoute>
                   <Status />
                 </ProtectedRoute>
               }
@@ -56,7 +47,7 @@ export default function App() {
             <Route
               path="/types"
               element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProtectedRoute>
                   <Types />
                 </ProtectedRoute>
               }
