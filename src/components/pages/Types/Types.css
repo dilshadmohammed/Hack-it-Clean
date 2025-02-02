@@ -52,6 +52,6 @@
 
 @media (max-width: 580px) {
     .Types {
-        height: 80vh;
+        /* height: 80vh; */
     }
 }

@@ -78,6 +78,6 @@
 
 @media (max-width: 580px) {
     .Status {
-        height: 80vh;
+        /* height: 80vh; */
     }
 }
